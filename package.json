@@ -1,7 +1,7 @@
 {
   "name": "minilru",
   "description": "An extremely tiny LRU cache",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "BlueOak-1.0.0",
   "files": [
     "dist"
