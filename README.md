@@ -37,8 +37,9 @@ const cacheSeeded = new MiniLRU<string, number>({ max: 100 }, [
 Because this is basically a thin wrapper around a JavaScript
 `Map`, it has some caveats.
 
-First of all, `2**22` (`4_194_304`) items in this cache, or else
-it blows up. So the `max` option is capped at that value.
+First of all, you can't put more than `2**22` (`4_194_304`) items
+in this cache, or else it blows up. So the `max` option is capped
+at that value.
 
 Second, you really wouldn't _want_ to put that many objects in
 it, because JavaScript `Map` objects are really tuned for best
