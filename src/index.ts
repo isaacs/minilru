@@ -1,13 +1,14 @@
 export type MiniLRUOptions = {
   max: number
 }
+export const MAP_MAX = 2**22
 export class MiniLRU<K, V> extends Map<K, V> {
   #max: number
   #size: number
   constructor(options: MiniLRUOptions, entries: [K, V][] = []) {
     super(entries)
     this.#size = entries.length
-    this.#max = options.max
+    this.#max = Math.min(options.max, MAP_MAX)
   }
   get size() {
     return this.#size
