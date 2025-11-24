@@ -14,11 +14,10 @@ export class MiniLRU<K, V> extends Map<K, V> {
     return this.#size
   }
   set(key: K, val: V) {
-    if (this.#size >= this.#max) {
-      for (const key of this.keys()) {
-        super.delete(key)
-        if (--this.#size < this.#max) break
-      }
+    while (this.#size >= this.#max) {
+      const nextKey = this.keys().next().value!;
+      super.delete(nextKey)
+      this.#size --
     }
     if (!super.delete(key)) this.#size++
     return super.set(key, val)

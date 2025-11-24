@@ -22,7 +22,7 @@
     "test": "tap",
     "snap": "tap",
     "format": "prettier --write . --log-level warn",
-    "typedoc": "typedoc --tsconfig tsconfig-esm.json ./src/*.ts",
+    "typedoc": "typedoc",
     "bench": "bash ./scripts/bench.sh"
   },
   "type": "module",
