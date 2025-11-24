@@ -1,7 +1,7 @@
 export type MiniLRUOptions = {
   max: number
 }
-export const MAP_MAX = 2**22
+export const MAP_MAX = 2 ** 22
 export class MiniLRU<K, V> extends Map<K, V> {
   #max: number
   #size: number
@@ -15,9 +15,9 @@ export class MiniLRU<K, V> extends Map<K, V> {
   }
   set(key: K, val: V) {
     while (this.#size >= this.#max) {
-      const nextKey = this.keys().next().value!;
+      const nextKey = this.keys().next().value!
       super.delete(nextKey)
-      this.#size --
+      this.#size--
     }
     if (!super.delete(key)) this.#size++
     return super.set(key, val)
